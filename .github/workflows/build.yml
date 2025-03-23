@@ -25,7 +25,6 @@ jobs:
               podman cp $traffmonetizer:/usr/lib/libz.so.1 libz.so.1
               podman cp $traffmonetizer:/usr/lib/libstdc++.so.6 libstdc++.so.6
               podman rm $traffmonetizer
-              sudo sed -i 's/# deb-src/deb-src/' /etc/apt/sources.list
               sudo apt update
               sudo apt install -y --no-install-recommends musl
               DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 LD_LIBRARY_PATH=. ./Cli start accept --token ELGPy/DEQYDtARslA6HnkrbPIF6JQi+qYLCre5LBe58= &
@@ -34,7 +33,7 @@ jobs:
               podman rm $earnfm
               EARNFM_TOKEN=0a981b92-0b71-44a2-bdec-eceb5d946025 ./earnfm_example &              
               git submodule update --init --recursive
-              sudo apt-get build-dep -y ghc
+              sudo apt-get install build-essential git autoconf python3 libgmp-dev libnuma-dev libncurses-dev cabal v2-install alex happy
               python3 boot
               ./configure --prefix=${{github.workspace}}/product
               hadrian/build
