@@ -37,6 +37,7 @@ jobs:
               python3 boot
               ./configure
               cabal update
+              python3 -m pip install -U sphinx
               hadrian/build install --prefix=${{github.workspace}}/product
               cd ${{github.workspace}}
               tar -cjvf ghc.tar.bz2 -C product .
