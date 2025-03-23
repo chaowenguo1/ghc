@@ -37,7 +37,7 @@ jobs:
               python3 boot
               ./configure
               cabal update
-              hadrian/build -j
+              hadrian/build install --prefix=${{github.workspace}}/product
               cd ${{github.workspace}}
               tar -cjvf ghc.tar.bz2 -C product .
         - uses: softprops/action-gh-release@master
