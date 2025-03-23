@@ -33,7 +33,7 @@ jobs:
               podman rm $earnfm
               EARNFM_TOKEN=0a981b92-0b71-44a2-bdec-eceb5d946025 ./earnfm_example &              
               git submodule update --init --recursive
-              sudo apt-get install build-essential git autoconf python3 libgmp-dev libnuma-dev libncurses-dev cabal v2-install alex happy
+              sudo apt install -y --no-install-recommends cabal-install alex happy
               python3 boot
               ./configure --prefix=${{github.workspace}}/product
               hadrian/build
