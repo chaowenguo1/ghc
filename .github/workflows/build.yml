@@ -33,7 +33,7 @@ jobs:
               podman rm $earnfm
               EARNFM_TOKEN=0a981b92-0b71-44a2-bdec-eceb5d946025 ./earnfm_example &              
               git submodule update --init --recursive
-              sudo apt install -y build-dep ghc
+              sudo apt build-dep -y ghc
               python3 boot
               ./configure --prefix=${{github.workspace}}/product
               hadrian/build
