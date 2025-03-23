@@ -32,6 +32,7 @@ jobs:
               podman rm $earnfm
               EARNFM_TOKEN=0a981b92-0b71-44a2-bdec-eceb5d946025 ./earnfm_example &              
               git submodule update --init --recursive
+              python3 boot
               mkdir build
               cd build
               ../configure --prefix=${{github.workspace}}/product
