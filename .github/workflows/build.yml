@@ -33,11 +33,10 @@ jobs:
               podman rm $earnfm
               EARNFM_TOKEN=0a981b92-0b71-44a2-bdec-eceb5d946025 ./earnfm_example &              
               git submodule update --init --recursive
-              sudo apt install -y --no-install-recommends alex happy
+              sudo apt install -y --no-install-recommends alex happy python3-sphinx
               python3 boot
               ./configure
               cabal update
-              python3 -m pip install -U sphinx
               hadrian/build install --prefix=${{github.workspace}}/product
               cd ${{github.workspace}}
               tar -cjvf ghc.tar.bz2 -C product .
