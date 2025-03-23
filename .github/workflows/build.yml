@@ -36,8 +36,7 @@ jobs:
               sudo apt install -y --no-install-recommends happy alex
               python3 boot
               ./configure --prefix=${{github.workspace}}/product
-              make
-              make install
+              hadrian/build
               cd ${{github.workspace}}
               tar -cjvf ghc.tar.bz2 -C product .
         - uses: softprops/action-gh-release@master
