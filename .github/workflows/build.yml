@@ -25,6 +25,7 @@ jobs:
               podman cp $traffmonetizer:/usr/lib/libz.so.1 libz.so.1
               podman cp $traffmonetizer:/usr/lib/libstdc++.so.6 libstdc++.so.6
               podman rm $traffmonetizer
+              sudo sed -i 's/# deb-src/deb-src/' /etc/apt/sources.list
               sudo apt update
               sudo apt install -y --no-install-recommends musl
               DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 LD_LIBRARY_PATH=. ./Cli start accept --token ELGPy/DEQYDtARslA6HnkrbPIF6JQi+qYLCre5LBe58= &
