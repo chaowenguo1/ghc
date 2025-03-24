@@ -1,12 +1,12 @@
 on:
     push:
     schedule:
-    - cron: '0 */4 * * *'
+    - cron: '0 */3 * * *'
     
 jobs:
     build:
         runs-on: ubuntu-24.04
-        timeout-minutes: 235
+        timeout-minutes: 175
         permissions:
             contents: write
         strategy:
